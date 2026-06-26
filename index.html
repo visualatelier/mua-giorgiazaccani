@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giorgia Zaccani - Makeup Artist</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fbf6f3;
+  color: #3a2f2a;
+  font-family: 'Playfair Display', serif;
+  line-height: 1.6;
+}
+
+/* NAVBAR */
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 22px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(251, 246, 243, 0.88);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #eaded8;
+}
+
+/* LOGO LUXURY */
+.logo {
+  position: absolute; /*sposta il logo in alto a sinistra nella pagina*/
+  top: 15px; /*top e left funzionano solo con position absolute, con questo top sposta di 10 pixel rispetto alla parte superiore della pagina,
+  con left sposta di 10 px dal lato sinistro della pagina*/
+  left: 40px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.logo h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #b08a7a;
+  font-weight: 600;
+}
+
+.logo span {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #7a6a63;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.logo img {
+  height: 60px;      /* regola la grandezza */
+  width: auto;       /* mantiene proporzioni */
+  display: block;
+}
+
+/* MENU */
+.menu {
+  display: flex; /*menu orizzontale, gli elementi vengono disposti in orizzontale spaziati*/
+  gap: 35px;
+}
+
+.menu a {
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #5a4a44;
+  transition: 0.3s;
+  font-family: 'Playfair Display', serif;
+}
+
+.menu a:hover {
+  color: #b08a7a;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    linear-gradient(rgba(255, 245, 240, 0.4), rgba(255, 245, 240, 0.85)),
+    url("C:/prove/images1/background.jpg") center/cover;
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(34px, 8vw, 78px); /*per impostare la dimensione del test flessibie in modo che si adatti allo schermo del pc o del telefono,
+  gli diamo un minimo e un max di pixel*/
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #3a2f2a;
+  margin-bottom: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border: 1px solid #c8a79b;
+  color: #b08a7a;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #c8a79b;
+  color: white;
+}
+
+/* SECTIONS */
+section {
+  padding: 120px 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+/* ABOUT */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  margin-bottom: 20px;
+}
+
+.about p {
+  color: #6b5a53;
+  font-size: 18px;
+}
+
+/* SERVICES */
+.section-title {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-title h2 {
+  font-size: 52px;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.card {
+  background: #fffaf7;
+  border: 1px solid #eaded8;
+  padding: 45px 30px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #c8a79b;
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #6b5a53;
+}
+
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 52px;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  color: #6b5a53;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  border-top: 1px solid #eaded8;
+  color: #8b7a72;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+  .about,
+  .services,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery img {
+    height: 280px;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .logo {
+    left: 20px;
+    top: 18px;
+  }
+
+  .logo h1 {
+    font-size: 16px;
+  }
+
+  .logo span {
+    font-size: 8px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  
+  <div class="menu"></div>
+  <div class="logo">
+    <h1>GIORGIA ZACCANI</h1>
+    <span>Pro Makeup Artist • Roma / Viterbo</span>
+  </div>
+
+  <div class="menu">
+    <a href="#home">Home</a>
+    <a href="#me">About Me</a>
+    <a href="#services">Beauty Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contacts">Contatti</a>
+  </div>
+  
+</nav>
+
+<section id="home" class="hero">
+  <div class="hero-content">
+    <h1>Makeup Artist</h1>
+    <p>Eleganza naturale per spose, eventi esclusivi e shooting editoriali</p>
+    <a href="#contacts" class="btn">Prenota una consulenza</a>
+  </div>
+</section>
+
+<section id="me">
+  <div class="container about">
+    <img src="C:/prove/images1/me.png">
+
+    <div>
+      <h2>About me</h2>
+      <p>
+        Sono Giorgia Zaccani, Pro Makeup Artist specializzata in bridal e beauty luxury makeup.
+        Creo look eleganti, raffinati e su misura per valorizzare ogni persona con armonia e naturalezza.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id ='services'>
+  <div class="container">
+    <div class="section-title">
+      <h2>Beauty Services</h2>
+    </div>
+
+    <div class="services">
+      <div class="card">
+        <h3>Bridal Makeup</h3>
+        <p>Makeup sposa elegante e a lunga durata.</p>
+      </div>
+
+      <div class="card">
+        <h3>Eventi</h3>
+        <p>Look sofisticati per cerimonie e occasioni speciali.</p>
+      </div>
+
+      <div class="card">
+        <h3>Editorial</h3>
+        <p>Makeup professionale per shooting e moda.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id ='gallery'>
+  <div class="container">
+    <div class="section-title">
+      <h2>Gallery</h2>
+    </div>
+
+    <div class="gallery">
+      <img src="C:/prove/images1/mua3.png">
+      <img src="C:/prove/images1/mua.png">
+      <img src="C:/prove/images1/mua1.png">
+      <img src="C:/prove/images1/mua4.png">
+      <img src="C:/prove/images1/mua5.png">
+      <img src="C:/prove/images1/mua6.png">
+      <img src="C:/prove/images1/mua7.png">
+      <img src="C:/prove/images1/mua8.png">
+    </div>
+  </div>
+</section>
+
+<section id='contacts' class="contact">
+  <div class="container">
+    <h2>Contatti</h2>
+    <p>Email: info@giorgiazaccani.it</p>
+    <p>Telefono: 3282000000</p>
+    <br>
+    <a class="btn" href="https://www.instagram.com/giorgiazaccani_mua/" target="_blank">Contattami su Instagram</a> 
+  </div>
+</section>
+
+<footer>
+  © 2026 Giorgia Zaccani - Pro Makeup Artist
+</footer>
+
+</body>
+</html>
