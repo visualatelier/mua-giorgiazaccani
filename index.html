@@ -51,6 +51,7 @@
       left: 40px;
       text-align: center;
       line-height: 1.2;
+      text-decoration: none;
     }
 
     .logo h1 {
@@ -220,14 +221,34 @@
     /* GALLERY */
     .gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 80px 8%;
     }
 
     .gallery img {
       width: 100%;
       height: 420px;
       object-fit: cover;
+    }
+
+    .card-mua {
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 12px;
+      overflow: hidden; /*tutto quello che esce dai bordi viene tagliato*/
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /*ombra sotto la card*/
+      transition: 0.3s; /*transizione fluida (serve per hover, cioè quando ci passi sopra)*/
+    }
+
+    .card-mua:hover {
+      transform: translateY(-8px); /*quando passi sulla card, questa viene traslata leggermente in verticale*/
+    }
+
+    .card-mua img {
+      width: 100%; /*riempie tutta la card*/
+      height: 340px; /*altezza fissa*/
+      object-fit: cover; /*riempie il box tagliando se serve*/
+      display: block;
     }
 
     /* CONTACT */
@@ -323,10 +344,11 @@
 <body>
 
   <nav>
-    <div class="logo">
+    <a href="#home" class="logo">
       <h1>GIORGIA ZACCANI</h1>
       <span>Pro Makeup Artist • Roma / Viterbo</span>
-    </div>
+    </a>
+
 
     <div class="hamburger" onclick="toggleMenu()">
       ☰
@@ -395,14 +417,38 @@
       </div>
 
       <div class="gallery">
-        <img src="images/mua3.png">
-        <img src="images/mua.png">
-        <img src="images/mua1.png">
-        <img src="images/mua4.png">
-        <img src="images/mua5.png">
-        <img src="images/mua6.png">
-        <img src="images/mua7.png">
-        <img src="images/mua8.png">
+
+        <div class="card-mua">
+        <img src="images/mua3.png" alt="Makeup Services">
+        </div>
+
+        <div class="card-mua">
+        <img src="images/mua.png" alt="Makeup Services">
+        </div>
+
+        <div class="card-mua">
+        <img src="images/mua1.png" alt="Makeup Services">
+        </div>
+
+        <div class="card-mua">
+        <img src="images/mua4.png" alt="Makeup Services">
+        </div>
+
+        <div class="card-mua">
+        <img src="images/mua5.png" alt="Makeup Services">
+        </div>
+
+        <div class="card-mua">
+        <img src="images/mua6.png" alt="Makeup Services">
+        </div>
+
+        <div class="card-mua">
+        <img src="images/mua7.png" alt="Makeup Services">
+        </div>
+
+        <div class="card-mua">
+        <img src="images/mua8.png" alt="Makeup Services">
+        </div>
       </div>
     </div>
   </section>
