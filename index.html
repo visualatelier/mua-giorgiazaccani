@@ -223,7 +223,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
-      padding: 80px 8%;
+      padding: 0;
     }
 
     .gallery img {
@@ -283,7 +283,9 @@
 
     /* RESPONSIVE */
     @media(max-width: 900px) {
-
+      nav {
+          padding: 18px 16px;
+        }
       .about,
       .services,
       .gallery {
@@ -305,10 +307,12 @@
 
       .logo h1 {
         font-size: 16px;
+        letter-spacing: 1px;
       }
 
       .logo span {
         font-size: 8px;
+        letter-spacing: 1px;
       }
 
       .hamburger {
