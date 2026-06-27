@@ -20,16 +20,16 @@
     }
 
     body {
-      overflow-x: hidden;
       background: #fbf6f3;
       color: #3a2f2a;
       font-family: 'Playfair Display', serif;
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     * {
-  outline: 1px solid red;
-}
+      outline: 1px solid red;
+    }
 
     /* NAVBAR */
     nav {
@@ -171,8 +171,10 @@
     }
 
     .about img {
+      width: 100%;
       max-width: 400px;
       border-radius: 14px;
+      display: block;
     }
 
     .about h2 {
@@ -240,19 +242,26 @@
     .card-mua {
       background: rgba(255, 255, 255, 0.75);
       border-radius: 12px;
-      overflow: hidden; /*tutto quello che esce dai bordi viene tagliato*/
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /*ombra sotto la card*/
-      transition: 0.3s; /*transizione fluida (serve per hover, cioè quando ci passi sopra)*/
+      overflow: hidden;
+      /*tutto quello che esce dai bordi viene tagliato*/
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      /*ombra sotto la card*/
+      transition: 0.3s;
+      /*transizione fluida (serve per hover, cioè quando ci passi sopra)*/
     }
 
     .card-mua:hover {
-      transform: translateY(-8px); /*quando passi sulla card, questa viene traslata leggermente in verticale*/
+      transform: translateY(-8px);
+      /*quando passi sulla card, questa viene traslata leggermente in verticale*/
     }
 
     .card-mua img {
-      width: 100%; /*riempie tutta la card*/
-      height: 340px; /*altezza fissa*/
-      object-fit: cover; /*riempie il box tagliando se serve*/
+      width: 100%;
+      /*riempie tutta la card*/
+      height: 340px;
+      /*altezza fissa*/
+      object-fit: cover;
+      /*riempie il box tagliando se serve*/
       display: block;
     }
 
@@ -288,26 +297,27 @@
 
     /* RESPONSIVE */
     @media(max-width: 900px) {
+
       nav {
-          padding: 18px 16px;
-        }
+        padding: 18px 16px;
+      }
+
       .about,
-      .services,
-      .gallery {
+      .services {
         grid-template-columns: 1fr;
       }
 
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
       .gallery img {
-        height: 280px;
+        height: 220px;
       }
 
       .hero h1 {
         font-size: 46px;
-      }
-
-      .logo {
-        left: 20px;
-        top: 8px;
       }
 
       .logo h1 {
@@ -318,6 +328,26 @@
       .logo span {
         font-size: 8px;
         letter-spacing: 1px;
+      }
+
+      /* ABOUT MOBILE */
+      .about {
+        gap: 30px;
+        text-align: center;
+      }
+
+      .about img {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .about h2 {
+        font-size: 38px;
+      }
+
+      .about p {
+        font-size: 16px;
       }
 
       .hamburger {
@@ -428,35 +458,35 @@
       <div class="gallery">
 
         <div class="card-mua">
-        <img src="images/mua3.png" alt="Makeup Services">
+          <img src="images/mua3.png" alt="Makeup Services">
         </div>
 
         <div class="card-mua">
-        <img src="images/mua.png" alt="Makeup Services">
+          <img src="images/mua.png" alt="Makeup Services">
         </div>
 
         <div class="card-mua">
-        <img src="images/mua1.png" alt="Makeup Services">
+          <img src="images/mua1.png" alt="Makeup Services">
         </div>
 
         <div class="card-mua">
-        <img src="images/mua41.png" alt="Makeup Services">
+          <img src="images/mua41.png" alt="Makeup Services">
         </div>
 
         <div class="card-mua">
-        <img src="images/mua51.png" alt="Makeup Services">
+          <img src="images/mua51.png" alt="Makeup Services">
         </div>
 
         <div class="card-mua">
-        <img src="images/mua6.png" alt="Makeup Services">
+          <img src="images/mua6.png" alt="Makeup Services">
         </div>
 
         <div class="card-mua">
-        <img src="images/mua7.png" alt="Makeup Services">
+          <img src="images/mua7.png" alt="Makeup Services">
         </div>
 
         <div class="card-mua">
-        <img src="images/mua8.png" alt="Makeup Services">
+          <img src="images/mua8.png" alt="Makeup Services">
         </div>
       </div>
     </div>
@@ -475,11 +505,11 @@
   <footer>
     © 2026 Giorgia Zaccani - Pro Makeup Artist
   </footer>
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu").classList.toggle("show");
-}
-</script>
+  <script>
+    function toggleMenu() {
+      document.getElementById("mobileMenu").classList.toggle("show");
+    }
+  </script>
 </body>
 
 </html>
