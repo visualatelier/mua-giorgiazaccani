@@ -24,7 +24,6 @@
       color: #3a2f2a;
       font-family: 'Playfair Display', serif;
       line-height: 1.6;
-      overflow-x: hidden;
     }
 
     /* NAVBAR */
@@ -101,13 +100,29 @@
       color: #b08a7a;
     }
 
+    .menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0%;
+      height: 1px;
+      background: #b08a7a;
+      transition: 0.3s;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
     /* HERO */
     .hero {
-      height: 100vh;
+      height: 100svh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      padding: 120px 20px 80px;
       background:
         linear-gradient(rgba(255, 245, 240, 0.4), rgba(255, 245, 240, 0.85)),
         url("images/background.jpg") center/cover;
@@ -119,8 +134,8 @@
 
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(34px, 8vw, 78px);
-      /*per impostare la dimensione del test flessibie in modo che si adatti allo schermo del pc o del telefono,
+      font-size: clamp(38px, 7vw, 90px);
+      /*per impostare la dimensione del testo flessibie in modo che si adatti allo schermo del pc o del telefono,
   gli diamo un minimo e un max di pixel*/
       margin-bottom: 10px;
     }
@@ -167,10 +182,8 @@
     }
 
     .about img {
-      width: 100%;
       max-width: 400px;
       border-radius: 14px;
-      display: block;
     }
 
     .about h2 {
@@ -192,6 +205,16 @@
 
     .section-title h2 {
       font-size: 52px;
+      position: relative;
+    }
+
+    .section-title h2::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 2px;
+      background: #c8a79b;
+      margin: 16px auto 0;
     }
 
     .services {
@@ -201,15 +224,18 @@
     }
 
     .card {
-      background: #fffaf7;
-      border: 1px solid #eaded8;
-      padding: 45px 30px;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      border: 1px solid rgba(200, 167, 155, 0.3);
+      padding: 30px 22px;
       transition: 0.3s;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
     }
 
     .card:hover {
-      border-color: #c8a79b;
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(176, 138, 122, 0.15);
     }
 
     .card h3 {
@@ -226,7 +252,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
-      padding: 0;
+      padding: 80px 8%;
     }
 
     .gallery img {
@@ -237,17 +263,18 @@
 
     .card-mua {
       background: rgba(255, 255, 255, 0.75);
-      border-radius: 12px;
+      border-radius: 18px;
       overflow: hidden;
       /*tutto quello che esce dai bordi viene tagliato*/
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
       /*ombra sotto la card*/
-      transition: 0.3s;
+      transition: 0.4s;
       /*transizione fluida (serve per hover, cioè quando ci passi sopra)*/
+      position: relative;
     }
 
     .card-mua:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
       /*quando passi sulla card, questa viene traslata leggermente in verticale*/
     }
 
@@ -259,6 +286,11 @@
       object-fit: cover;
       /*riempie il box tagliando se serve*/
       display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .card-mua:hover img {
+      transform: scale(1.06);
     }
 
     /* CONTACT */
@@ -294,56 +326,38 @@
     /* RESPONSIVE */
     @media(max-width: 900px) {
 
-      nav {
-        padding: 18px 16px;
-      }
-
       .about,
-      .services {
-        grid-template-columns: 1fr;
-      }
-
+      .services,
       .gallery {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 5px;
+        padding: 20px 4px;
       }
 
       .gallery img {
-        height: 220px;
+        height: 280px;
       }
 
       .hero h1 {
-        font-size: 46px;
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+
+      .logo {
+        left: 20px;
+        top: 8px;
       }
 
       .logo h1 {
         font-size: 16px;
-        letter-spacing: 1px;
       }
 
       .logo span {
         font-size: 8px;
-        letter-spacing: 1px;
-      }
-
-      /* ABOUT MOBILE */
-      .about {
-        gap: 30px;
-        text-align: center;
-      }
-
-      .about img {
-        width: 100%;
-        max-width: 280px;
-        margin: 0 auto;
-      }
-
-      .about h2 {
-        font-size: 38px;
-      }
-
-      .about p {
-        font-size: 16px;
       }
 
       .hamburger {
@@ -358,7 +372,9 @@
         position: absolute;
         top: 80px;
         right: 20px;
-        width: 220px;
+        left: 16px;
+        right: 16px;
+        width: auto;
         background: rgba(251, 246, 243, 0.97);
         backdrop-filter: blur(10px);
         border: 1px solid #eaded8;
@@ -372,7 +388,29 @@
       .menu.show {
         display: flex;
       }
+
+      section {
+        padding: 70px 0;
+      }
     }
+
+    @keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content,
+.about,
+.card,
+.card-mua {
+  animation: fadeUp 0.8s ease;
+}
   </style>
 </head>
 
