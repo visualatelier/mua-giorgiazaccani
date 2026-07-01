@@ -20,15 +20,11 @@
     }
 
     body {
-      overflow-x: hidden;
       background: #fbf6f3;
       color: #3a2f2a;
       font-family: 'Playfair Display', serif;
       line-height: 1.6;
-    }
-
-    * {
-      outline: 1px solid red;
+      overflow-x: hidden;
     }
 
     /* NAVBAR */
@@ -171,8 +167,10 @@
     }
 
     .about img {
+      width: 100%;
       max-width: 400px;
       border-radius: 14px;
+      display: block;
     }
 
     .about h2 {
@@ -295,27 +293,27 @@
 
     /* RESPONSIVE */
     @media(max-width: 900px) {
+
       nav {
         padding: 18px 16px;
       }
 
       .about,
-      .services,
-      .gallery {
+      .services {
         grid-template-columns: 1fr;
       }
 
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
       .gallery img {
-        height: 280px;
+        height: 220px;
       }
 
       .hero h1 {
         font-size: 46px;
-      }
-
-      .logo {
-        left: 20px;
-        top: 8px;
       }
 
       .logo h1 {
@@ -326,6 +324,26 @@
       .logo span {
         font-size: 8px;
         letter-spacing: 1px;
+      }
+
+      /* ABOUT MOBILE */
+      .about {
+        gap: 30px;
+        text-align: center;
+      }
+
+      .about img {
+        width: 100%;
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .about h2 {
+        font-size: 38px;
+      }
+
+      .about p {
+        font-size: 16px;
       }
 
       .hamburger {
@@ -353,25 +371,6 @@
 
       .menu.show {
         display: flex;
-      }
-
-      @keyframes fadeUp {
-        from {
-          opacity: 0;
-          transform: translateY(25px);
-        }
-
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .hero-content,
-      .about,
-      .card,
-      .card-mua {
-        animation: fadeUp 0.8s ease;
       }
     }
   </style>
